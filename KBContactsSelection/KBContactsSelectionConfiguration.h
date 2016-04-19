@@ -12,6 +12,8 @@
 @class APContact;
 
 typedef void(^KBContactSelectionHandler)(NSArray * selectedContacts);
+typedef void(^KBContactCancelHandler)();
+
 typedef BOOL(^KBContactValidation)(APContact * contact);
 
 typedef NS_ENUM(NSInteger, KBContactsSelectionMode) {
@@ -37,10 +39,13 @@ typedef NS_ENUM(NSInteger, KBContactsSelectionMode) {
 @property (nonatomic, assign) BOOL skipUnnamedContacts;
 @property (nonatomic, assign) BOOL searchByKeywords;
 @property (strong) KBContactValidation contactEnabledValidation;
+@property (nonatomic, assign) BOOL isMultiSelect;
 
 /* Action */
 @property (strong) NSString * selectButtonTitle;
 @property (strong) KBContactSelectionHandler customSelectButtonHandler;
+@property (strong) KBContactCancelHandler customCancelButtonHandler;
+
 
 + (KBContactsSelectionConfiguration*)defaultConfiguration;
 

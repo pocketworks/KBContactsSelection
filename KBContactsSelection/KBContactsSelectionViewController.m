@@ -46,6 +46,10 @@
     [self customizeColors];
     
     [self _showAdditionalInfoViewAnimated:NO];
+    if (!_configuration.isMultiSelect){
+      [_buttonItemSelect  setEnabled:NO];
+      [_buttonItemSelect setTintColor:[UIColor clearColor]];
+    }
 }
 
 - (void)setAdditionalInfoView:(UIView *)additionalInfoView
@@ -150,7 +154,11 @@
 #pragma mark - IBActions
 
 - (IBAction)buttonCancelPushed:(id)sender {
+  if (_configuration.customCancelButtonHandler){
+    _configuration.customCancelButtonHandler();
+  }else{
     [self dismissViewControllerAnimated:YES completion:nil];
+  }
 }
 
 - (IBAction)buttonSelectPushed:(id)sender {

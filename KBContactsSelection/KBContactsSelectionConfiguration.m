@@ -22,7 +22,8 @@
     configuration.mailIsHTML = false;
     configuration.mailSubject = @"";
     configuration.messageBody = @"";
-    
+  configuration.isMultiSelect = true;
+  
     return configuration;
 }
 

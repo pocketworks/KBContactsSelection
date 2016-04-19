@@ -15,5 +15,6 @@
 @property (weak, nonatomic) IBOutlet UILabel *labelPhone;
 @property (weak, nonatomic) IBOutlet UILabel *labelPhoneType;
 @property (weak, nonatomic) IBOutlet KBRadioButton *buttonSelection;
+@property (strong, nonatomic) IBOutlet NSLayoutConstraint *radioWidthConstraint;
 
 @end

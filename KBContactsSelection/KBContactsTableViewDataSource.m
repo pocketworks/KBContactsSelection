@@ -345,6 +345,11 @@ static NSString *cellIdentifier = @"KBContactCell";
         cell.labelName.alpha = cell.labelPhone.alpha = (enabled? 1: 0.3);
         cell.buttonSelection.enabled = enabled;
         cell.userInteractionEnabled = enabled;
+      
+        if (!_configuration.isMultiSelect){
+          cell.buttonSelection.alpha = 0;
+          cell.radioWidthConstraint.constant = 0;
+        }
     }
     
     return cell;
