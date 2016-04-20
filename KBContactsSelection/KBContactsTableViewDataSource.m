@@ -374,6 +374,7 @@ static NSString *cellIdentifier = @"KBContactCell";
     
     APContact *contact = [self contactAtIndexPath:indexPath];
     if (contact) {
+      if (_configuration.isMultiSelect){
         BOOL selected = [_selectedContactsRecordIds containsObject:contact.recordID];
         if (selected) {
             [_selectedContactsRecordIds removeObject:contact.recordID];
@@ -386,6 +387,11 @@ static NSString *cellIdentifier = @"KBContactCell";
                 [_delegate dataSource:self didSelectContact:contact];
             }
         }
+      }else{
+        if ([_delegate respondsToSelector:@selector(dataSource:didSelectContact:)]) {
+          [_delegate dataSource:self didSelectContact:contact];
+        }
+      }
     }
     
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
