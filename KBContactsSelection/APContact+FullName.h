@@ -6,7 +6,7 @@
 //  Copyright (c) 2014 Sigmapoint. All rights reserved.
 //
 
-#import "APContact.h"
+@import APAddressBook;
 
 @interface APContact (FullName)
 
