@@ -132,13 +132,8 @@ static NSString *cellIdentifier = @"KBContactCell";
         BOOL fullNamesEqual = [[contact fullName] isEqualToString:searchedContactFullName];
         
         if (_configuration.mode & KBContactsSelectionModeMessages) {
-            if (contact.phones.count > 0 && searchedContact.phones.count > 0) {
-                NSString *searchedContactPhone = ((APPhone*) searchedContact.phones[0]).number;
-                BOOL phonesEqual = [((APPhone*) contact.phones[0]).number isEqualToString:searchedContactPhone];
-                
-                if (fullNamesEqual && phonesEqual) {
-                    return YES;
-                }
+            if (fullNamesEqual && phonesEqual) {
+                return YES;
             }
         }
         if (_configuration.mode & KBContactsSelectionModeEmail) {
