@@ -35,7 +35,7 @@
 @property (weak, nonatomic) IBOutlet UINavigationItem *titleItem;
 @property (weak, nonatomic) IBOutlet UINavigationBar *navigationBarSearchContacts;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *navigationBarSearchContactsHeight;
-
+@property (nonatomic, strong) KBContactsTableViewDataSource *kBContactsTableViewDataSource;
 @property (strong, nonatomic) UIView * additionalInfoView;
 @property (readonly) NSArray * selectedContacts;
 
