@@ -29,6 +29,7 @@
 
 - (instancetype)initWithTableView:(UITableView*)tableView configuration:(KBContactsSelectionConfiguration*)configuration;
 
+- (void)reloadContacts;
 - (void)runSearch:(NSString*)text;
 - (void)selectAll;
 - (void)removeAll;
