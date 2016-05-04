@@ -54,6 +54,11 @@ static NSString *cellIdentifier = @"KBContactCell";
     _contactsGroupedInSections = [NSMutableDictionary dictionary];
 }
 
+- (void)reloadContacts
+{
+    [self loadContacts];
+}
+
 - (void)loadContacts
 {
 //    APContactFieldName             = 1 << 0,
