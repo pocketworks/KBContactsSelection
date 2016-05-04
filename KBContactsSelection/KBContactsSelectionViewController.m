@@ -15,7 +15,6 @@
 
 @property (strong) NSArray * selectedContacts;
 
-@property (nonatomic, strong) KBContactsTableViewDataSource *kBContactsTableViewDataSource;
 @property (nonatomic, strong) KBContactsSelectionConfiguration *configuration;
 @property IBOutlet UIView * additionalInfoContainer;
 @property IBOutlet NSLayoutConstraint * additionalInfoViewHeightConstraint;
