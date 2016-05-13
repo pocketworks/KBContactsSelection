@@ -137,7 +137,7 @@ static NSString *cellIdentifier = @"KBContactCell";
         BOOL fullNamesEqual = [[contact fullName] isEqualToString:searchedContactFullName];
         
         if (_configuration.mode & KBContactsSelectionModeMessages) {
-            if (fullNamesEqual) {
+            if (fullNamesEqual && [searchedContact.recordID isEqualToNumber:contact.recordID]) {
                 return YES;
             }
         }
