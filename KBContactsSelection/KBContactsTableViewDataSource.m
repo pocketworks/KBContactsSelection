@@ -82,7 +82,7 @@ static NSString *cellIdentifier = @"KBContactCell";
     
     [self.delegate dataSourceWillLoadContacts:self];
     APAddressBook *ab = [[APAddressBook alloc] init];
-    ab.fieldsMask = APContactFieldName | APContactFieldPhonesWithLabels | APContactFieldEmailsWithLabels | APContactFieldLinkedRecordIDs | APContactFieldJob;
+    ab.fieldsMask = APContactFieldName | APContactFieldPhonesWithLabels | APContactFieldEmailsWithLabels | APContactFieldLinkedRecordIDs | APContactFieldJob | APContactFieldNote;
     ab.sortDescriptors = @[[NSSortDescriptor sortDescriptorWithKey:@"name.firstName" ascending:YES]];
     
     ab.filterBlock = ^BOOL(APContact *contact){
