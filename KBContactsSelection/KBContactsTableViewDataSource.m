@@ -102,13 +102,18 @@ static NSString *cellIdentifier = @"KBContactCell";
     };
     
     [ab loadContacts:^(NSArray *contacts, NSError *error) {
-        if (contacts) {
-            NSArray *filteredContacts = [self filteredDuplicatedContacts:contacts];
-            self.unmodifiedContacts = filteredContacts;
-            self.contacts = filteredContacts;
-        }
-        [self updateAfterModifyingContacts];
-        [self.delegate dataSourceDidLoadContacts:self];
+        dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_BACKGROUND, 0), ^(void) {
+            if (contacts) {
+                NSArray *filteredContacts = [self filteredDuplicatedContacts:contacts];
+                self.unmodifiedContacts = filteredContacts;
+                self.contacts = filteredContacts;
+            }
+            
+            dispatch_async(dispatch_get_main_queue(), ^(void) {
+                [self updateAfterModifyingContacts];
+                [self.delegate dataSourceDidLoadContacts:self];
+            });
+        });
     }];
 }
 
