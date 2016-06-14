@@ -91,9 +91,7 @@ static NSString *cellIdentifier = @"KBContactCell";
         }
         
         if (_configuration.mode & KBContactsSelectionModeMessages) {
-            if (contact.phones.count > 0) {
-                return YES;
-            }
+            return YES;
         }
         if (_configuration.mode & KBContactsSelectionModeEmail) {
             if (contact.emails.count > 0) {
